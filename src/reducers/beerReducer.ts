@@ -9,12 +9,8 @@ const _nullBeerState = ({ drinks: [] });
 
 const beerReducer = (state: any = {}, action: any): any => {
   Object.freeze(state);
-  let newState;
-  if (state.drinks) {
-    newState = merge({}, state);
-  } else {
-    newState = merge({}, state, _nullBeerState);
-  }
+  let newState = state.drinks ? merge({}, state) : merge({}, state, _nullBeerState);
+
   switch (action.type) {
     case RECEIVE_BEERS:
       newState.drinks = action.beers;
