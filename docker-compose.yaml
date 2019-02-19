@@ -1,0 +1,46 @@
+version: '3'
+services:
+  warehouse:
+    image: aporeto/apobar:crud
+    command:
+      - warehouse
+    ports:
+     - "9190:80"
+
+  winery:
+    image: aporeto/apobar:crud
+    command:
+      - bar
+    ports:
+     - "9191:80"
+    environment:
+      BAR_TYPE: "winery"
+      BAR_WAREHOUSE_URL: "http://warehouse"
+
+  brewery:
+    image: aporeto/apobar:crud
+    command:
+      - bar
+    ports:
+     - "9192:80"
+    environment:
+      BAR_TYPE: "brewery"
+      BAR_WAREHOUSE_URL: "http://warehouse"
+
+  ui:
+    image: aporeto/apobar:crud
+    command:
+      - ui
+    ports:
+     - "9193:80"
+    environment:
+      UI_WINERY_URL: "http://winery"
+      UI_BREWERY_URL: "http://brewery"
+
+  consumer:
+    image: aporeto/apobar:crud
+    command:
+      - consumer
+    environment:
+      CONSUMER_WINERY_URL: "http://winery"
+      CONSUMER_BREWERY_URL: "http://brewery"
