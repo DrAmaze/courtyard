@@ -9,7 +9,7 @@ import {
 const _nullBeerErrors = { beerErrors: [] };
 const _nullWineErrors = { wineErrors: [] };
 
-export default (state: any = [], action: any) => {
+export default (state: any = [], action: any): any => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_BEER_ERRORS:
