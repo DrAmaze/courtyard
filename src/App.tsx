@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <h1>Courtyard</h1>
-        </header>
-      </div>
-    );
-  }
-}
+const App = () => (
+  <Router>
+    <div id='route-container'>
+      {/* <Route path='/brewery' exact component={ Brewery } />
+      <Route path='/winery' exact component={ Winery } /> */}
+      Aloha
+    </div>
+  </Router>
+);
 
 export default App;
