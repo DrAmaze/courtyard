@@ -1,6 +1,13 @@
 import React from 'react';
 
-class Brewery extends React.Component {
+class Brewery extends React.Component<object> {
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      drinks: []
+    }
+  }
+  
   render() {
     return (
       <div>

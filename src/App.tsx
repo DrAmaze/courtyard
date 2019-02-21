@@ -3,13 +3,14 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import Splash from './components/splash';
 import Brewery from './components/brewery';
+import Winery from './components/winery';
 
 const App = () => (
   <Router>
     <div id='route-container'>
       <Route path='/' exact component={ Splash } />
       <Route path='/brewery' exact component={ Brewery } />
-      {/* <Route path='/winery' exact component={ Winery } /> */}
+      <Route path='/winery' exact component={ Winery } />
     </div>
   </Router>
 );

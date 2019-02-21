@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Winery extends React.Component {
+class Winery extends React.Component<object> {
   render() {
     return (
       <div>

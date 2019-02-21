@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import Brewery from './brewery';
-import Winery from './winery';
+import Brewery from './breweryContainer';
+import Winery from './wineryContainer';
 
 const Splash = () => (
   <div>
