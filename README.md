@@ -7,3 +7,6 @@ Adding drinks to state shape, and combining wine/beer.  It is important for a us
 
 * Typecasting Reducer and actions
 Creating more object models to ensure shape of state is maintained appropriately.
+
+* Do API calls on the splash page
+No because there isn't that much data

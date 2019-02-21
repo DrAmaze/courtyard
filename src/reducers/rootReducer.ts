@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 
-import beerReducer from './beerReducer';
-import wineReducer from './wineReducer';
-import errorReducer from './errorReducer';
+import beers from './beerReducer';
+import wines from './wineReducer';
+import errors from './errorReducer';
 
 export default combineReducers({
-  beerReducer,
-  wineReducer,
-  errorReducer
+  beers,
+  wines,
+  errors
 });
