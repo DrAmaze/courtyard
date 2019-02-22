@@ -10,3 +10,6 @@ Creating more object models to ensure shape of state is maintained appropriately
 
 * Do API calls on the splash page
 No because there isn't that much data
+
+* Using the given ID for the unique identifier for list of drinks
+Should generate UUID for each

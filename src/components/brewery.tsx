@@ -1,50 +1,76 @@
 import React from 'react';
+import DrinkListItem from './drinkListItem';
+import { Link, withRouter } from 'react-router-dom';
+import { randomBytes } from 'crypto';
 
 interface Props {
   fetchBeers: Function;
-  drinks: any[]
+  drinks: any[];
 }
 
 interface State {
-  drinks: any[]
+  drinks: any[];
+  consumed: any[];
 }
 
 class Brewery extends React.Component<Props, State> {
   constructor(props: any) {
     super(props);
+    console.log('hiay', props);
     this.state = {
-      drinks: []
+      drinks: [],
+      consumed: props.consumed
     }
+    this.order = this.order.bind(this);
   }
   
   componentDidMount() {
     this.props.fetchBeers().then((res: any) => {
-      const beers = res.beers;
-      this.setState({ drinks: beers });
+      this.setState({ drinks: res.beers });
+    });
+  }
+
+  componentWillUnmount() {
+    this.setState({ drinks: [] });
+  }
+
+  order(e: React.MouseEvent, drink: any) {
+    e.preventDefault();
+    this.setState((state: any) => {
+      debugger
+      const consumed = state.consumed.push(drink);
+      return { consumed: consumed, drinks: state.drinks };
     });
   }
   
   render() {
-    let drinks;
-    if (this.state && this.state.drinks) {
-      drinks = this.state.drinks;
-    }
+    const { drinks } = this.state;
 
     let list;
     if (drinks && drinks.length) {
-      list = drinks.map(drink => 
-          <li>{drink.name}</li>
+      list = drinks.map(drink =>
+        <DrinkListItem drink={ drink }
+          key={ drink.ID }
+          order={ this.order }
+        />
       )
     } else {
-      list = <div>BOOO</div>
+      list = <div>Excuse us while we fetch the beer list...</div>
     }
-    console.log(drinks, list);
+
     return (
       <div>
-        <h1>The BREWTOWN</h1>
+        <h1>Welcome to the Brewtown</h1>
+        <h5>Which beer would you like to order?</h5>
         <ul>
           { list }
         </ul>
+
+        <Link to='/'>
+          <button>
+            Head back to the Courtyard
+          </button>
+        </Link>
       </div>
     )
   }
