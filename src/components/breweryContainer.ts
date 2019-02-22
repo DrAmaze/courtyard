@@ -3,20 +3,9 @@ import { connect } from "react-redux";
 import { fetchBeers } from '../actions/beerActions';
 import Brewery from "./brewery";
 
-const mapStateToProps = (state: any) => {
-  console.log('STATETEA', state);
-  if (state.beers && state.consumed) {
-    return {
-      drinks: state.beers.drinks,
-      consumed: state.beers.consumed
-    }
-  } else {
-    return {
-      drinks: [],
-      consumed: []
-    }
-  }
-};
+const mapStateToProps = (state: any) => ({
+  drinks: state.beers.drinks || []
+});
 
 const mapDispatchToProps: any = (dispatch: Dispatch) => ({
   fetchBeers: () => dispatch(fetchBeers())

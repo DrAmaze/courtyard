@@ -10,37 +10,22 @@ interface Props {
 
 interface State {
   drinks: any[];
-  consumed: any[];
 }
 
 class Brewery extends React.Component<Props, State> {
   constructor(props: any) {
     super(props);
-    console.log('hiay', props);
     this.state = {
       drinks: [],
-      consumed: props.consumed
     }
-    this.order = this.order.bind(this);
   }
   
   componentDidMount() {
-    this.props.fetchBeers().then((res: any) => {
-      this.setState({ drinks: res.beers });
-    });
-  }
-
-  componentWillUnmount() {
-    this.setState({ drinks: [] });
-  }
-
-  order(e: React.MouseEvent, drink: any) {
-    e.preventDefault();
-    this.setState((state: any) => {
-      debugger
-      const consumed = state.consumed.push(drink);
-      return { consumed: consumed, drinks: state.drinks };
-    });
+    if (this.props.fetchBeers) {
+      this.props.fetchBeers().then((res: any) => {
+        this.setState({ drinks: res.beers });
+      });
+    }
   }
   
   render() {
@@ -49,10 +34,11 @@ class Brewery extends React.Component<Props, State> {
     let list;
     if (drinks && drinks.length) {
       list = drinks.map(drink =>
-        <DrinkListItem drink={ drink }
-          key={ drink.ID }
-          order={ this.order }
-        />
+        <Link to={ `/beer/${ drink.ID }` }>
+          <DrinkListItem drink={ drink }
+            key={ drink.ID }
+          />
+        </Link>
       )
     } else {
       list = <div>Excuse us while we fetch the beer list...</div>
