@@ -78,7 +78,7 @@ class Beer extends React.Component<Props, State> {
     e.preventDefault();
     this.props.deleteBeer(this.state.drinks).then((res: any) => {
       this.setState({ deletedBeer: true });
-    });
+    }).then(location.replace('/brewery'));
   }
 
   private buildDrinkOptions(haveDrink: boolean) {
@@ -145,7 +145,7 @@ class Beer extends React.Component<Props, State> {
     const updatePage = this.openUpdatePage(isUpdatePage);
     const error = this.state.errorMsg;
 
-   const displayOptions = isUpdatePage ? updatePage : drinkOptions;
+    const displayOptions = isUpdatePage ? updatePage : drinkOptions;
     
     return (
       <div id='beer-page'>
