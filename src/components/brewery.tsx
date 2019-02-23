@@ -2,7 +2,7 @@ import React from 'react';
 import DrinkListItem from './drinkListItem';
 import { Link, withRouter } from 'react-router-dom';
 import { v4 } from 'uuid';
-import { Beer } from '../schema';
+import '../styles/brewery.scss';
 
 interface Props {
   fetchBeers: Function;
@@ -99,13 +99,15 @@ class Brewery extends React.Component<Props, State> {
     const form = this.buildCreateForm(isCreateForm);
 
     return (
-      <div>
-        <h1>Welcome to the Brewtown</h1>
-        <div>
+      <div id='brewery'>
+        <h1 className='greeting' id='intro-brewery'>
+          Welcome to the Brewtown
+        </h1>
+        <div className='error'>
           { errorMsg }
         </div>
-        <h5>Which beer would you like to order?</h5>
-        <ul>
+        <h5 className='server-question'>Which beer would you like to order?</h5>
+        <ul className='drink-list'>
           { list }
         </ul>
 

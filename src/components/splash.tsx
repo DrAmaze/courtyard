@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 const Splash = () => {
   return (
     <div className='courtyard'>
-      <h1 className='greeting'>Welcome To The Courtyard</h1>
+      <h1 className='greeting' id='intro'>Welcome To The Courtyard</h1>
       <div id='drinking-options'>
-        <h4>Choose your Aporeto adventure...</h4>
+        <h4 className='server-question'>Choose your Aporeto adventure...</h4>
 
         <div id='drinking-options-content'>
           <div id='winery-nav'>

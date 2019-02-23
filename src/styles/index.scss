@@ -12,6 +12,7 @@ html, body, div, span, h1, h2, h3, h4, a, ol, ul, li, form, label, article, asid
   font-family: 'Caveat', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  list-style-type: none;
 }
 
 code {
@@ -30,4 +31,21 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-blend-mode: exclusion;
+}
+
+.greeting {
+  color: $color-red;
+  font-weight: bold;
+  font-size: 5em;
+  margin: 5% auto .5em auto;
+}
+
+.error {
+  color: $color-red;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.server-question {
+  color: black;
 }

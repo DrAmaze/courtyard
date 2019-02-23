@@ -1,0 +1,64 @@
+@import './colors.scss';
+
+#brewery {
+  background-color: $color-light;
+  text-align: center;
+
+  .greeting {
+    margin: 0;
+    padding: 5% auto .5em auto;
+  }
+  
+  #intro-brewery {
+    color: $color-blue;
+  }
+
+  h5 {
+    font-size: 1.5em;
+  }
+
+  ul.drink-list {
+    display: inline-grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: auto;
+
+    a {
+      margin-bottom: .5em;
+    }
+
+    li {
+      position: relative;
+      margin: auto;
+    }
+
+    li.drink-list-item {
+      color: $color-red;
+      margin: auto inherit;
+
+      &hover {
+        color: $color-red;
+      }
+    }
+
+    li:before {
+      content: "";
+      position: absolute;
+      width: 50%;
+      height: 1px;
+      bottom: 0;
+      left: 25%;
+      background-color: $color-blue;
+      visibility: hidden;
+      -webkit-transform: scaleX(0);
+      transform: scaleX(0);
+      -webkit-transition: all 0.3s ease-in-out 0s;
+      transition: all 0.3s ease-in-out 0s;
+    }
+
+    li:hover:before {
+      visibility: visible;
+      -webkit-transform: scaleX(1);
+      transform: scaleX(1);
+    }
+  }
+}
