@@ -1,6 +1,6 @@
 @import './colors.scss';
 
-html, body, div, span, h1, h2, h3, h4, a, ol, ul, li, form, label, article, aside, figure, figcaption, footer, header, nav {
+html, body, div, span, h1, button, input, h2, h3, h4, a, ol, ul, li, form, label, article, aside, figure, figcaption, footer, header, nav {
   margin: 0;
   padding: 0;
   border: 0;
@@ -13,6 +13,10 @@ html, body, div, span, h1, h2, h3, h4, a, ol, ul, li, form, label, article, asid
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   list-style-type: none;
+}
+
+html {
+  height: 100%;
 }
 
 code {
@@ -31,6 +35,11 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-blend-mode: exclusion;
+  height: 100%;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 .greeting {

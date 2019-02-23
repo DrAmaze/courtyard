@@ -69,7 +69,8 @@ class Brewery extends React.Component<Props, State> {
       return (
         <form onSubmit={ e => this.addBeer(e) }>
           <input type='text' 
-            onChange={ e => this.update(e) }/>
+            onChange={ e => this.update(e) }
+            placeholder='Enter Name Here...'/>
             <button>Create Your Beer!</button>
         </form>
       )
@@ -111,13 +112,15 @@ class Brewery extends React.Component<Props, State> {
           { list }
         </ul>
 
-        { form }
+        <div className='brewery-options'>
+          { form }
 
-        <Link to='/'>
-          <button>
-            Head back to the Courtyard
-          </button>
-        </Link>
+          <Link to='/'>
+            <button>
+              Head back to the Courtyard
+            </button>
+          </Link>
+        </div>
       </div>
     )
   }

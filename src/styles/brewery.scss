@@ -3,6 +3,7 @@
 #brewery {
   background-color: $color-light;
   text-align: center;
+  padding-bottom: 100%;
 
   .greeting {
     margin: 0;
@@ -19,7 +20,7 @@
 
   ul.drink-list {
     display: inline-grid;
-    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-columns: 33% 34% 33%;
     grid-template-rows: auto;
 
     a {
@@ -59,6 +60,39 @@
       visibility: visible;
       -webkit-transform: scaleX(1);
       transform: scaleX(1);
+    }
+  }
+
+  .brewery-options {
+    display: inline-grid;
+    grid-template-columns: 100%;
+
+    button {
+      background-color: $color-light;
+      border: 1px dotted $color-yellow;
+      border-radius: 10px;
+      color: $color-yellow;
+      font-size: 2em;
+      padding: .2em .7em;
+      margin: 20px;
+      width: 90%;
+
+      &:hover {
+        color: $color-light;
+        background-color: $color-yellow;
+      }
+    }
+
+    input {
+      background-color: $color-light;
+      border-bottom: 1px dotted $color-yellow;
+      font-size: 2em;
+      text-align: center;
+      width: 90%;
+
+      &:focus {
+        outline: none;
+      }
     }
   }
 }
