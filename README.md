@@ -66,6 +66,9 @@ class Winery extends React.Component<Props, State> {
 
 In future projects, I would create an `interface` for each object available in this application (actions, etc.)
 
+### Response Messages
+This application features rendering of error messages on invalid HTTP calls. Future iterations of this application will feature more robust error messaging and confirmation messages.
+
 ### Creating unique keys
 Importing the `uuid` library allowed me to create truly unique keys for each list item available in the list of beers and wines. I also leveraged this tool to create a unique `beer.ID` when user creates a new beer.
 
