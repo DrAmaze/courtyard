@@ -1,6 +1,6 @@
 import React from 'react';
 import DrinkListItem from './drinkListItem';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { v4 } from 'uuid';
 import '../styles/brewery.scss';
 
