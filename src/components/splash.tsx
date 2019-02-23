@@ -1,10 +1,11 @@
 import React from 'react';
+import '../styles/splash.scss';
 import { Link } from 'react-router-dom';
 
 const Splash = () => {
   return (
-    <div>
-      <h1>Welcome To The Courtyard</h1>
+    <div className='courtyard'>
+      <h1 className='greeting'>Welcome To The Courtyard</h1>
       <div id='drinking-options'>
         <h4>Choose your Aporeto adventure...</h4>
 

@@ -14,6 +14,7 @@ interface State {
   drinks: any[];
   isCreateForm: boolean;
   newBeerName: string;
+  errorMsg: string;
 }
 
 class Brewery extends React.Component<Props, State> {
@@ -22,7 +23,8 @@ class Brewery extends React.Component<Props, State> {
     this.state = {
       drinks: [],
       isCreateForm: false,
-      newBeerName: ''
+      newBeerName: '',
+      errorMsg: ''
     }
     this.update = this.update.bind(this);
     this.addBeer = this.addBeer.bind(this);
@@ -48,9 +50,12 @@ class Brewery extends React.Component<Props, State> {
     e.preventDefault();
     const newBeer = { name: this.state.newBeerName, ID: v4() };
     this.props.createBeer(newBeer).then((res: any) => {
-      console.log('RESSSSS', res);
-      this.setState({ isCreateForm: false, newBeerName: '' });
-      this.componentDidMount();
+      if (res.beer) {
+        this.setState({ isCreateForm: false, newBeerName: '' });
+        this.componentDidMount();
+      } else {
+        this.setState({ errorMsg: 'Whoops! That one was too hard for our brewers...try again!' })
+      }
     })
   }
 
@@ -78,15 +83,13 @@ class Brewery extends React.Component<Props, State> {
   }
   
   render() {
-    const { drinks, isCreateForm } = this.state;
+    const { drinks, isCreateForm, errorMsg } = this.state;
 
     let list;
     if (drinks && drinks.length) {
       list = drinks.map(drink =>
-        <Link to={ `/beer/${ drink.ID }` }>
-          <DrinkListItem drink={ drink }
-            key={ v4() }
-          />
+        <Link to={ `/beer/${ drink.ID }` } key={ v4() }>
+          <DrinkListItem drink={ drink } />
         </Link>
       )
     } else {
@@ -98,6 +101,9 @@ class Brewery extends React.Component<Props, State> {
     return (
       <div>
         <h1>Welcome to the Brewtown</h1>
+        <div>
+          { errorMsg }
+        </div>
         <h5>Which beer would you like to order?</h5>
         <ul>
           { list }

@@ -1,0 +1,17 @@
+@import './colors';
+
+div.courtyard {
+  text-align: center;
+}
+
+.greeting {
+  color: $color-red;
+  font-weight: bold;
+  font-size: 5em;
+  margin: 20% auto .5em auto;
+}
+
+div#drinking-options {
+  color: $color-blue;
+  font-size: 2.5em;
+}
