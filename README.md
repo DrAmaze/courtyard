@@ -6,6 +6,8 @@ Courtyard is a web application simulation of Aporeto's newly minted winery and b
 
 * Open the compressed file
 * Run the command `npm install` in your terminal
+* Run the command to start the API: `docker-compose up -d`
+* Check the statof the containers: `docker ps`
 * Run the command `npm start` in your terminal
 * Navigate to `localhost:3000` to find the UI
 
