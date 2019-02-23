@@ -27,10 +27,10 @@ class Beer extends React.Component<Props, State> {
       deletedBeer: false,
       errorMsg: '',
     }
-    this.updateBeer = this.updateBeer.bind(this)
-    this.deleteBeer = this.deleteBeer.bind(this)
-    this.update = this.update.bind(this)
-    this.deleteBeer = this.deleteBeer.bind(this)
+    this.updateBeer = this.updateBeer.bind(this);
+    this.deleteBeer = this.deleteBeer.bind(this);
+    this.update = this.update.bind(this);
+    this.deleteBeer = this.deleteBeer.bind(this);
     this.buildDrinkOptions = this.buildDrinkOptions.bind(this);
     this.toggleUpdatePage = this.toggleUpdatePage.bind(this);
     this.openUpdatePage = this.openUpdatePage.bind(this);
@@ -41,11 +41,9 @@ class Beer extends React.Component<Props, State> {
       const url = location.href.split('/');
       const beerID = url[url.length - 1];
       this.props.fetchBeer(beerID).then((res: any) => {
-        console.log(res);
         if (res.beer && !res.beer[0]) {
           this.setState({ drinks: res.beer, deletedBeer: true })
         } else {
-          console.log('here baby')
           const errorMsg = this.handleError(res);
           this.setState({ errorMsg: errorMsg });
         }
@@ -79,7 +77,6 @@ class Beer extends React.Component<Props, State> {
   deleteBeer(e: any) {
     e.preventDefault();
     this.props.deleteBeer(this.state.drinks).then((res: any) => {
-      debugger
       this.setState({ deletedBeer: true });
     });
   }

@@ -54,7 +54,7 @@ export const fetchBeer: any = (id: any) => (dispatch: Dispatch) => {
 
 export const createBeer: any = (beer: Beer) => (dispatch: Dispatch) => {
   const options = { method: 'POST', body: JSON.stringify(beer) };
-  return fetch(apiConfig + 'beers/', options).then(res =>
+  return fetch(apiConfig + 'beers', options).then(res =>
     res.json(),
     err => console.log('ERROR: ', err)
   ).then(json => 
