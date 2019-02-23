@@ -1,6 +1,6 @@
 import { apiConfig, Beer } from '../schema';
 import fetch from 'cross-fetch';
-import { Dispatch, AnyAction } from 'redux';
+import { Dispatch } from 'redux';
 
 export const RECEIVE_BEERS = 'RECEIVE_BEERS';
 export const RECEIVE_BEER = 'RECEIVE_BEER';
