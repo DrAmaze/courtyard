@@ -1,0 +1,61 @@
+@import './colors.scss';
+
+#beer-page {
+  background-color: $color-light;
+  text-align: center;
+  padding-bottom: 100%;
+
+  .greeting {
+    margin: 0;
+    padding-top: 10%;
+  }
+
+  .beer-options {
+    display: inline-grid;
+    grid-template-columns: 100%;
+  }
+  
+  .server-question {
+    font-size: 1.5em;
+  }
+  
+  button {
+    background-color: $color-light;
+    border: 1px dotted $color-blue;
+    border-radius: 10px;
+    color: $color-blue;
+    font-size: 2em;
+    padding: .2em .7em;
+    margin: 20px;
+    width: 90%;
+
+    &:hover {
+      color: $color-light;
+      background-color: $color-blue;
+    }
+
+    &.bar-nav {
+      width: 28%;
+    }
+  }
+
+  form {
+
+    input {
+      background-color: $color-light;
+      border-bottom: 1px dotted $color-blue;
+      font-size: 2em;
+      text-align: center;
+      width: 28%;
+      margin: 0 30%;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  #update-beer {
+    width: 28%;
+  }
+}

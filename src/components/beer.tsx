@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { updateBeer, deleteBeer } from '../actions/beerActions';
+import '../styles/beer.scss';
 
 interface Props {
   fetchBeer: Function;
@@ -84,8 +84,10 @@ class Beer extends React.Component<Props, State> {
   private buildDrinkOptions(haveDrink: boolean) {
     if (haveDrink && !this.state.errorMsg) {
       return (
-        <div>
-          <h5>Is there something wrong with this beer?</h5>
+        <div className='beer-options'>
+          <h5 className='server-question'>
+            Is there something wrong with this beer?
+          </h5>
           <button onClick={ e => this.toggleUpdatePage() }>
             Yes, it needs an update!
           </button>
@@ -107,7 +109,7 @@ class Beer extends React.Component<Props, State> {
             onChange={ e => this.update(e) }
             placeholder={ 'Please Enter New Name...' }
             required/>
-          <button>Update Beer Name</button>
+          <button id='update-beer'>Update Beer Name</button>
         </form>
       )
     } else {
@@ -128,6 +130,8 @@ class Beer extends React.Component<Props, State> {
   }
 
   render() {
+    const { isUpdatePage } = this.state;
+    
     let drink;
     let haveDrink = false;
     if (this.state.drinks) {
@@ -138,21 +142,26 @@ class Beer extends React.Component<Props, State> {
     }
 
     const drinkOptions = this.buildDrinkOptions(haveDrink);
-    const updatePage = this.openUpdatePage(this.state.isUpdatePage);
+    const updatePage = this.openUpdatePage(isUpdatePage);
     const error = this.state.errorMsg;
+
+   const displayOptions = isUpdatePage ? updatePage : drinkOptions;
     
     return (
-      <div>
-        <h2>{ drink }</h2>
+      <div id='beer-page'>
+        <h2 className='greeting'>{ drink }</h2>
 
-        <div>
+        <div className='error'>
           { error }
         </div>
-        { drinkOptions }
-        { updatePage }
+        { displayOptions }
+
+        <h5 className='server-question'>
+          Or would you like to head back to the bar?
+        </h5>
 
         <Link to='/brewery'>
-          <button>
+          <button className='bar-nav'>
             To the Bar
           </button>
         </Link>
